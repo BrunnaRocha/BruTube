@@ -3,7 +3,7 @@ export class User {
         private fullName: string,
         private id: string,
         private email: string,
-        private bithdate: string,
+        private birthdate: string,
         private password: string
     ) {}
     
@@ -20,7 +20,7 @@ export class User {
     }
 
     public getBirthdate(): string {
-        return this.bithdate
+        return this.birthdate
     }
 
     public getPassword(): string {
