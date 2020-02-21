@@ -16,7 +16,7 @@ export class RegisterUserUC {
         this.validateUserInput(input);
         const id = this.idGenerator.generate();
         const password = await this.cryptoGateway.hash(input.password);
-        const user = new User(id, input.name, input.email, input.birthdate, password);
+        const user = new User(id, input.fullName, input.email, input.birthdate, password);
        
 
         await this.userGateway.createUser(user);
@@ -26,14 +26,14 @@ export class RegisterUserUC {
     }
 
     private validateUserInput(input: RegisterUserUCInput) {
-        if(!input.email || !input.password || !input.name){
+        if(!input.email || !input.password || !input.fullName){
             throw new Error("Algum(s) campo(s) está(ão) inválido(s)!")
         }
     }
 }
 
 export interface RegisterUserUCInput {
-    name: string;
+    fullName: string;
     email: string;
     birthdate: string,
     password: string;
